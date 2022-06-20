@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Avatar, Image } from "antd";
+import { Typography, Avatar, Image, Badge } from "antd";
 import { MenuOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import useWindowDimensions from "../others/useWindowDimensions";
 
@@ -8,7 +8,8 @@ type Props = {
   isDrawerOpen: boolean;
   page: string;
   data: string[];
-  children: React.ReactNode;
+  qty: number;
+  openCart: () => void;
   handleClick: (page: string) => void;
 };
 
@@ -37,7 +38,9 @@ const LeftMenu = (props: Props) => {
               <li
                 key={key}
                 onClick={() => props.handleClick(el)}
-                style={props.page === el ? styles.link_active : styles.link}
+                style={
+                  props.page === el ? styles.link_active : styles.link_inactive
+                }
               >
                 {el}
               </li>
@@ -45,13 +48,22 @@ const LeftMenu = (props: Props) => {
           </ul>
         </div>
         <div style={styles.avator_container}>
-          <ShoppingCartOutlined
-            onClick={props.showDrawer}
-            style={styles.cart}
-          />
+          <Badge count={props.qty}>
+            <ShoppingCartOutlined
+              onClick={props.openCart}
+              style={styles.cart}
+            />
+          </Badge>
+
           <Avatar
-            style={{ width: "30px" }}
-            src={<Image alt="img" src="https://joeschmoe.io/api/v1/random" />}
+            style={styles.avator}
+            src={
+              <Image
+                alt="img"
+                src="/images/user.jpg"
+                //"https://joeschmoe.io/api/v1/random"
+              />
+            }
           />
         </div>
       </div>
@@ -81,7 +93,8 @@ const styles = {
     fontSize: "20px",
     cursor: "pointer",
   },
-  link: {
+  avator: { width: "40px", height: "40px", marginLeft: "10px" },
+  link_inactive: {
     marginLeft: "20px",
     cursor: "pointer",
   },
@@ -111,8 +124,7 @@ const styles = {
     marginTop: "7px",
   },
   list_none: { display: "none" },
-  cart: { fontSize: "30px", cursor: "pointer", marginRight: "10px" },
+  cart: { fontSize: "30px", cursor: "pointer" },
 };
 
-
-export{styles}
+export { styles };

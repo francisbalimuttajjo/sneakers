@@ -26,7 +26,7 @@ const DrawerComponent = (props: Props) => {
         renderItem={(item) => (
           <List.Item
             onClick={() => props.handleClick(item)}
-            style={props.page === item ? styles.link_active : styles.link}
+            style={props.page === item ? styles.link_active : styles.link_inactive}
           >
             {item}
           </List.Item>
