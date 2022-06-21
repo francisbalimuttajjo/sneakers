@@ -8,7 +8,7 @@ const Header = (props: Props) => {
   return (
     <Head>
       <title>{props.title}</title>
-      <meta name="movies app" content="movies app" />
+      <meta name="Sneakers" content="sneakers app" />
       <link rel="icon" href="" />
     </Head>
   );

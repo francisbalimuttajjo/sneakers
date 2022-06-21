@@ -10,7 +10,8 @@ type Props = {
 const ModalComponent = (props: Props) => {
   const { Title, Text } = Typography;
   const PRICE = 125.0;
-  const TOTAL = 125.0 * props.cartQty;
+  const TOTAL = PRICE * props.cartQty;
+
   return (
     <Modal
       width={420}
@@ -30,13 +31,11 @@ const ModalComponent = (props: Props) => {
               <Title level={5} style={{ marginLeft: "10px" }}>
                 Autom Limited Edition...
               </Title>
-              <Text style={{ marginLeft: "10px", fontSize: "18px" }}>
+              <Text style={styles.price}>
                 &#x24;{`${PRICE} * ${props.cartQty}`}&nbsp;
               </Text>
               <span>
-                <Text style={{ fontSize: "18px", fontWeight: 900 }}>
-                  &#x24;{TOTAL}
-                </Text>
+                <Text style={styles.price}>&#x24;{TOTAL}</Text>
               </span>
             </div>
             <div style={styles.icon} onClick={props.removeItem}>
@@ -55,6 +54,8 @@ const ModalComponent = (props: Props) => {
 };
 export default ModalComponent;
 const styles = {
+  total: { fontSize: "18px", fontWeight: 900 },
+  price: { marginLeft: "10px", fontSize: "18px" },
   btn: {
     width: "90%",
     backgroundColor: "#FFA64D",

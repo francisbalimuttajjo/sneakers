@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
 import Head from "../components/reusableComponents/Head";
-import Home from "../components/HomeScreen";
+import Home from "../components/Home"
 
 const HomePage: NextPage = () => {
   return (
     <>
-      <Head title="e-commerce" />
+      <Head title="Sneakers" />
       <Home />
     </>
   );

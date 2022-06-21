@@ -1,5 +1,5 @@
 import { Drawer, List } from "antd";
-import { styles } from "./LeftMenu";
+import { styles } from "./Nav"
 
 type Props = {
   closeDrawer: () => void;

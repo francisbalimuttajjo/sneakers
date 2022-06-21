@@ -13,21 +13,17 @@ type Props = {
   handleClick: (page: string) => void;
 };
 
-const LeftMenu = (props: Props) => {
+const Navbar = (props: Props) => {
   const { screen } = useWindowDimensions();
-  const { isMobile, isDesktop, isTablet } = screen;
+  const { isDesktop } = screen;
   const { Title } = Typography;
 
   return (
     <>
-      <div
-        style={
-          isTablet || isMobile ? styles.container : styles.desktop_container
-        }
-      >
+      <div style={!isDesktop ? styles.container : styles.desktop_container}>
         <MenuOutlined
           onClick={props.showDrawer}
-          style={isMobile || isTablet ? styles.icon : styles.list_none}
+          style={!isDesktop ? styles.icon : styles.list_none}
         />
         <div style={styles.sub_container}>
           <Title level={2} style={styles.title}>
@@ -57,20 +53,14 @@ const LeftMenu = (props: Props) => {
 
           <Avatar
             style={styles.avator}
-            src={
-              <Image
-                alt="img"
-                src="/images/user.jpg"
-                //"https://joeschmoe.io/api/v1/random"
-              />
-            }
+            src={<Image alt="img" src="/images/user.jpg" />}
           />
         </div>
       </div>
     </>
   );
 };
-export default LeftMenu;
+export default Navbar;
 
 const styles = {
   container: {
