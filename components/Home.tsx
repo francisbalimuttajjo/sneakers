@@ -13,6 +13,7 @@ const Home = () => {
     handleClick,
     decrement,
     increment,
+    handleCheckout,
     addToCart,
     isDesktop,
     cartQty,
@@ -53,6 +54,7 @@ const Home = () => {
         onCancel={closeModal}
         cartQty={cartQty}
         removeItem={removeItem}
+        handleCheckout={handleCheckout}
       />
       {page === "Collections" && (
         <Body

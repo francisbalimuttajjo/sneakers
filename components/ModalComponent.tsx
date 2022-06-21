@@ -6,6 +6,7 @@ type Props = {
   onCancel: () => void;
   cartQty: number;
   removeItem: () => void;
+  handleCheckout: () => void;
 };
 const ModalComponent = (props: Props) => {
   const { Title, Text } = Typography;
@@ -42,7 +43,7 @@ const ModalComponent = (props: Props) => {
               <DeleteFilled />
             </div>
           </div>
-          <Button style={styles.btn}>
+          <Button onClick={props.handleCheckout} style={styles.btn}>
             <Title level={3} style={{ color: "#fff" }}>
               Checkout
             </Title>

@@ -26,7 +26,6 @@ const UseFns = () => {
   };
 
   const handleClick = (val: string) => {
-
     setPage(val);
     closeDrawer();
   };
@@ -38,6 +37,11 @@ const UseFns = () => {
   const removeItem = () => setCartQty(0);
   const openDrawer = () => setShowDrawer(true);
   const closeDrawer = () => setShowDrawer(false);
+
+  const handleCheckout = () => {
+    setOpenModal(false);
+    setCartQty(0);
+  };
 
   return {
     removeItem,
@@ -57,6 +61,7 @@ const UseFns = () => {
     closeDrawer,
     qty,
     Title,
+    handleCheckout
   };
 };
 export default UseFns;
